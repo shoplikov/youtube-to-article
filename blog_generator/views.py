@@ -11,6 +11,10 @@ from pytube import YouTube
 import assemblyai as aai
 import google.generativeai as genai
 from .models import BlogPost
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 
 # Create your views here.
@@ -76,7 +80,7 @@ def download_audio(link):
 
 def get_transcription(link):
     audio_file = download_audio(link)
-    aai.settings.api_key = '706b0242a5af4c9f9a584e6fd23d271b'
+    aai.settings.api_key = os.getenv('ASSEMBLY_AI_API')
 
     transcriber = aai.Transcriber()
     transcript = transcriber.transcribe(audio_file)
@@ -85,7 +89,7 @@ def get_transcription(link):
 
 
 def generate_blog_from_transcription(transcription):
-    genai.configure(api_key='AIzaSyAKJt2Ype-u8-ydHFVFCrRays3d1g2IFnU')
+    genai.configure(api_key=os.getenv('GEMINI_API'))
     model = genai.GenerativeModel('gemini-pro')
     response = model.generate_content(f"Write short article based on this transcript:\n\n{transcription}\n\nArticle:")
 
