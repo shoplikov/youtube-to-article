@@ -38,10 +38,10 @@ To set up the project locally, follow these steps:
 
 3. Create config.py file to include the neccesary keys for: `POSTGRES_KEYS`, `ASSEMBLY_AI_API` and `GEMINI_API` variables
 
-3. Migrate the database
+3. Apply database migrations
 ``` python manage.py migrate ```
 
 4. Run the server
 ``` python manage.py runserver ```
 
-
+5. Access the application at http://localhost:8000.
