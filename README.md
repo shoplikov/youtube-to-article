@@ -32,11 +32,11 @@ This project aims to automate the process of generating articles from YouTube vi
 
 To set up the project locally, follow these steps:
 
-1. Clone the repository:
- 
-``` git clone https://github.com/shoplikov/youtube-to-article.git ```
+1. Clone the repository: ``` git clone https://github.com/shoplikov/youtube-to-article.git ```
 
 2. Move to the project directory
+
+3. Create config.py file to include the neccesary keys for: `POSTGRES_KEYS =`, `ASSEMBLY_AI_API` and `GEMINI_API` variables
 
 3. Migrate the database
 ``` python manage.py migrate ```
